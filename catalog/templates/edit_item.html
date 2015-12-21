@@ -1,0 +1,53 @@
+{% extends "main.html" %}
+{% block content %}
+    
+    <div id="item-screen">
+        
+        <div class="row">
+            <form action="#" method="post" enctype="multipart/form-data">
+                <div class="eight columns">
+                    
+                        <label for="item-name">Item Name</label>
+                        <input class="u-full-width" id="item-name" name="item-name" {% if editItem %} value="{{ editItem.name }}" {% endif %} type="text">
+                            
+                        <label for="item-description">Item Description</label>
+                        <textarea class="u-full-width no-resize" rows="6" id="item-description" name="item-description">{% if editItem %}{{ editItem.description }}{% endif %}</textarea>
+                        
+                        <label for="item-image">Item Image</label>
+                        {% if editItem %}
+                        <div class="u-max-full-width">
+                            <img src="{{ editItem.image }}" />
+                        </div>
+                        {% endif %}
+                        <input id="item-image" name="item-image" class="u-full-width" type="file">
+                        
+                </div>
+                
+                <div class="four columns">
+                    
+                        <label for="category-select">Item Category</label>
+                        <select class="u-full-width" id="category-select" name="category-select">
+                            <option value="" selected disabled hidden></option>
+                        {% for cat in cats %}
+                            <option value="{{ cat.id }}" {% if editItem and cat.id == editItem.category_id %} selected {% endif %}>{{ cat.name }}</option>
+                        {% endfor %}
+                        </select>
+                        
+                        <label for="item-price">Item Price</label>
+                        <input class="u-full-width" placeholder="" id="item-price" name="item-price" {% if editItem %} value="{{ editItem.price }}" {% endif %} type="text">
+                            
+                </div>
+                
+                <div class="u-cf">
+                    <input class="button button-success" value="Save" type="submit">
+                    {% if editItem %}
+                    <a href="{{ url_for('viewItemHandler', item_id=editItem.id) }}" class="button">Cancel</a>
+                    {% endif %}
+                </div>
+                
+            </form>
+        </div>
+        
+    </div>
+    
+{% endblock %}

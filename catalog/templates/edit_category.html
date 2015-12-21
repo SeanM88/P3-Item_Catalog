@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+{% block content %}
+    
+    <div id="category-screen">
+        
+        <div class="row">
+            <form action="#" method="post">
+                <div class="eight columns">
+                    
+                        <label for="category-name">Category Name</label>
+                        <input class="u-full-width" id="category-name" name="category-name" {% if editCategory %} value="{{ editCategory.name }}" {% endif %} type="text">
+                            
+                        <label for="category-description">Category Description</label>
+                        <textarea class="u-full-width no-resize" rows="6" id="category-description" name="category-description">{% if editCategory %}{{ editCategory.description }}{% endif %}</textarea>
+                        <input class="button button-success" value="Save" type="submit">
+                        {% if editCategory %}
+                        <a href="{{ url_for('viewCategoryHandler', cat_id=editCategory.id) }}" class="button">Cancel</a>
+                        {% endif %}
+                            
+                </div>
+                
+            </form>
+        </div>
+        
+    </div>
+    
+{% endblock %}

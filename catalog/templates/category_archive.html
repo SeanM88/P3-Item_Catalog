@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+{% block content %}
+    <h2>{{ category.name }}</h2>
+    {% set count = 0 %}
+    {% for item in items %}
+    
+        {% if count == 0 or count % 3 == 0 %}
+        <div class="row">
+        {% endif %}
+        
+            <div class="four columns"> 
+                <img src="{{ item.image }}" class="u-max-full-width" />
+                <h2 class="h5"><a href="{{ url_for('viewItemHandler', item_id = item.id) }}">{{ item.name }}</a></h2>
+                <p>{{ item.description }}</p>
+            </div>
+            
+        {% if (count + 1) % 3 == 0 %}
+        </div>
+        {% endif %}
+    
+    {% set count = count + 1 %}
+    {% endfor %}
+    
+    {% if (count + 1) % 3 != 0 %}
+        </div>
+    {% endif %}
+    
+{% endblock %}

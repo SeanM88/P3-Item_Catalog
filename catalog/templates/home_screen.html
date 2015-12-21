@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% block content %}
+
+    <div class="row">
+        
+        <div id="item-list" class="eight columns">
+            <h2>Recent Items</h2>
+            <ul>
+            {% for item in items %}
+                <li>
+                    <a href="{{ url_for('viewItemHandler', item_id = item.id) }}">{{ item.name }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+            <a href="{{ url_for('itemListHandler') }}" class="button button-primary">View All</a>
+        </div>
+        
+        <div id="category-list" class="four columns">
+            <h2>Categories</h2>
+            <ul class="">
+            {% for cat in cats %}
+                <li>
+                    <a href="{{ url_for('itemsByCategoryHandler', cat_id = cat.id) }}">{{cat.name}}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        
+    </div>
+    
+{% endblock %}

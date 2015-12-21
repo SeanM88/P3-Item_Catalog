@@ -1,0 +1,50 @@
+.nav-bar {
+    padding: 25px 0;
+    background-color: #000;
+    margin-bottom: 40px;
+}
+.nav-items {
+    display: block;
+}
+.nav-left {
+    display: inline-block;
+    max-width: 50%;
+    float: left;
+}
+.nav-right {
+    display: inline-block;
+    max-width: 50%;
+    float: right;
+}
+h1.logo {
+    font-size: 32px;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+p.login-status {
+    color: #fff;
+    line-height: 1;
+    margin: 0;
+    padding: 8px 0 0;
+    
+}
+.sign-in-window {
+    text-align: center;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: #eee;
+}
+.admin-area {
+    margin-bottom: 20px;
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #F1FFFD;
+}
+.item-image {
+    margin: 10px 0 20px;
+}
+ul.none {
+    list-style: none;
+}

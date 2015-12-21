@@ -1,0 +1,18 @@
+<div class="nav-bar">
+	<div class="container">
+		<div class="nav-items">
+			<div class="nav-left">
+				<h1 class="logo"><a href="{{ url_for('indexHandler') }}">Catalog App</a></h1>
+			</div>
+			<div class="nav-right">
+				<p class="login-status">
+				{% if user %}
+					{{ user.name }} | <a href="{{ url_for('logoutHandler') }}"> Logout</a>
+				{% else %}
+					<a href="{{ url_for('loginHandler') }}">Login</a>
+				{% endif %}
+				</p>
+			</div>
+		</div>		
+	</div>
+</div>

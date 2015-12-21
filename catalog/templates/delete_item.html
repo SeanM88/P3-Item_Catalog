@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+{% block content %}
+    
+    <div class="row">
+        <h3 class="warning">Are you sure you want delete this item?</h3>
+        <form action="#" method='post'>
+            <input class="button button-warning" value="Confirm" type="submit">
+            <a href="{{ url_for('viewItemHandler', item_id=deleteItem.id) }}" class="button">Cancel</a>
+        </form>
+        
+    </div>
+    
+    <div class="row">
+        <div class="eight columns">
+            <h2>{{ deleteItem.name }}</h2>
+            <img src="{{ deleteItem.image }}" class="u-max-full-width"/>
+            <p>{{ deleteItem.description }}</p>
+        </div>
+        <div class="four columns">
+            <p>Price: ${{ deleteItem.price }}</p>
+            <p>Category: <a href="{{ url_for('viewCategoryHandler', cat_id = deleteItem.category_id) }}">{{ deleteItem.category_name }}</a></p>
+        </div>
+    </div>
+    
+{% endblock %}

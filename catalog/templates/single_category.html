@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% block content %}
+    
+    <div class="row">
+        <div class="eight columns">
+            <h2>{{ category.name }}</h2>
+            <p>{{ category.description }}</p>
+        </div>
+        <div class="four columns">
+            {% if user %}
+            <div class="admin-area">
+                <h4>Admin Options</h4>
+                <a href="{{ url_for('editCategoryHandler', cat_id = category.id) }}" class="button button-primary">Edit</a>
+                <a href="{{ url_for('deleteCategoryHandler', cat_id = category.id) }}" class="button button-warning">Delete</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    
+{% endblock %}
