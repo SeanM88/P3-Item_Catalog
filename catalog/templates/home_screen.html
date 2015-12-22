@@ -4,6 +4,13 @@
     <div class="row">
         
         <div id="item-list" class="eight columns">
+            {% if user %}
+            <div class="admin-area">
+                <h4>Admin Options</h4>
+                <a href="{{ url_for('newItemHandler') }}" class="button button-primary">Add Item</a>
+                <a href="{{ url_for('newCategoryHandler') }}" class="button button-warning">Add Category</a>
+            </div>
+            {% endif %}
             <h2>Recent Items</h2>
             <ul>
             {% for item in items %}
